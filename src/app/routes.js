@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, Suspense } from "react";
 import { Switch } from "react-router-dom";
 import { AuthenRoute, PublicRoute } from "components";
 
@@ -8,6 +8,7 @@ const AsyncRegister = lazy(() => import("modules/Authen/Register"));
 const AsyncHome = lazy(() => import("modules/Home"));
 const AsyncVocabulary = lazy(() => import("modules/Vocabulary/List"));
 const AsyncChat = lazy(() => import("modules/Chat"));
+const AsyncNotes = lazy(() => import("modules/Notes/List"));
 
 const Routes = props => {
   return (
@@ -33,6 +34,7 @@ const Routes = props => {
           {...props}
         />
         <PublicRoute path={"/chat"} exact component={AsyncChat} {...props} />
+        <PublicRoute path={"/notes"} exact component={AsyncNotes} {...props} />
       </Switch>
     </Suspense>
   );

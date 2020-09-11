@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Table, Radio, Divider } from "antd";
-import { StarOutlined, StarFilled } from "@ant-design/icons";
+import { Table, Divider } from "antd";
+import { StarOutlined } from "@ant-design/icons";
 import Search from "./Search";
 import { withUser } from "hocs";
 import { firebaseApp } from "app/firebaseConfig";

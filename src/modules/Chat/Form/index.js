@@ -5,8 +5,7 @@ import { Wrapper, FormWrapper } from "./styled";
 import moment from "moment";
 import { withReducer } from "hocs";
 import chatReducer from "../reducer";
-import { orNull, orBoolean } from "utils/Selector";
-const FormMessage = ({ user, state, dispatch, action }) => {
+const FormMessage = ({ user, dispatch, action }) => {
   const [form] = FormWrapper.useForm();
   const messageInput = useRef(null);
 

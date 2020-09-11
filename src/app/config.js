@@ -21,6 +21,12 @@ const config = [
     nested: false
   },
   {
+    name: "Ghi Chú",
+    icon: <BuildOutlined />,
+    url: "/notes",
+    nested: false
+  },
+  {
     name: "Nhóm Chat",
     icon: <WechatOutlined />,
     url: "/chat",
