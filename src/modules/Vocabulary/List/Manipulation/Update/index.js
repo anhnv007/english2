@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form } from "../../../private-components";
-import { withReducer, withCompose } from "hocs";
+import { withReducer } from "hocs";
 import vocabularyReducer from "../../../reducer";
 import { orNull, orBoolean } from "utils/Selector";
 import { notification } from "antd";

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { DatePicker, Typography, Row, Col } from "antd";
-import { Card } from "../private-components";
-import { StarOutlined } from "@ant-design/icons";
+import { Row, Col } from "antd";
 import RandomWord from "./RandomWord";
 import ListWord from "./ListWord";
 import ImportantWord from "./ImportantWord";

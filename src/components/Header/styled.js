@@ -5,6 +5,9 @@ const { Header } = Layout;
 
 export const HeaderWrapper = styled(Header)`
   background-color: ${theme.color.DARK_THEME_COLOR};
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 export const AvatarWrapper = styled.div`

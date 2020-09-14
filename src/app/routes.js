@@ -9,6 +9,7 @@ const AsyncHome = lazy(() => import("modules/Home"));
 const AsyncVocabulary = lazy(() => import("modules/Vocabulary/List"));
 const AsyncChat = lazy(() => import("modules/Chat"));
 const AsyncNotes = lazy(() => import("modules/Notes/List"));
+const AsyncUpdateProfile = lazy(() => import("modules/UpdateProfile"));
 
 const Routes = props => {
   return (
@@ -35,6 +36,12 @@ const Routes = props => {
         />
         <PublicRoute path={"/chat"} exact component={AsyncChat} {...props} />
         <PublicRoute path={"/notes"} exact component={AsyncNotes} {...props} />
+        <PublicRoute
+          path={"/update-profile"}
+          exact
+          component={AsyncUpdateProfile}
+          {...props}
+        />
       </Switch>
     </Suspense>
   );

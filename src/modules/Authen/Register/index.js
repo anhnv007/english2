@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Form, Input, Button, Card, notification } from "antd";
 import { Wrapper } from "./styled";
 import { withReducer } from "hocs";
@@ -9,13 +9,12 @@ const Authen = ({ history, state, dispatch, action }) => {
     action.loginRMA.OnRegisterUser(
       {
         username: values.username,
+        email: values.email,
         password: values.password
       },
       dispatch.loginRMA
     );
   };
-
-  console.log(state);
 
   const onFinishFailed = errorInfo => {
     console.log("Failed:", errorInfo);
@@ -42,22 +41,46 @@ const Authen = ({ history, state, dispatch, action }) => {
       <Card style={{ width: 500 }}>
         <Form
           name="basic"
+          layout={"vertical"}
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
           <Form.Item
-            label="Username"
+            label="username"
             name="username"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            rules={[
+              {
+                required: true,
+                message: "Vui lòng điền đầy đủ thông tin để đăng ký!"
+              }
+            ]}
           >
             <Input />
           </Form.Item>
 
           <Form.Item
-            label="Password"
+            label="email"
+            name="email"
+            rules={[
+              {
+                required: true,
+                message: "Vui lòng điền đầy đủ thông tin để đăng ký!"
+              }
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Mật khẩu"
             name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}
+            rules={[
+              {
+                required: true,
+                message: "Vui lòng điền đầy đủ thông tin để đăng ký!"
+              }
+            ]}
           >
             <Input.Password />
           </Form.Item>

@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Layout, Menu } from "antd";
-import {
-  AppstoreOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  ShopOutlined,
-  TeamOutlined,
-  UserOutlined,
-  UploadOutlined,
-  VideoCameraOutlined
-} from "@ant-design/icons";
-import { Logo } from "./styled";
+import { Menu } from "antd";
+import { Logo, SiderWrapper } from "./styled";
 import Config from "app/config";
-
-const { Sider } = Layout;
 
 const Sidebar = props => {
   const { history } = props;
@@ -51,10 +39,7 @@ const Sidebar = props => {
     });
   };
   return (
-    <Sider
-      style={{
-        height: "100vh"
-      }}
+    <SiderWrapper
       breakpoint="lg"
       collapsedWidth="0"
       onBreakpoint={broken => {
@@ -68,7 +53,7 @@ const Sidebar = props => {
       <Menu theme="dark" mode="inline" selectedKeys={[`${select}`]}>
         {renderMenuItem()}
       </Menu>
-    </Sider>
+    </SiderWrapper>
   );
 };
 export default Sidebar;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "components";
-import { Form, Input, Button, Card, notification, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox } from "antd";
 import { orEmpty, orBoolean } from "utils/Selector";
 const FormComponent = props => {
   const [form] = Form.useForm();
@@ -24,7 +24,6 @@ const FormComponent = props => {
     >
       <Form
         name="basic"
-        initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         layout={"vertical"}

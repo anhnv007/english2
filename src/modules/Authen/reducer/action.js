@@ -6,31 +6,27 @@ import {
 } from "./type";
 import { firebaseApp } from "app/firebaseConfig";
 import { Storage } from "utils";
-// export const OnLoginUser = (username, password) => async dispatch => {
-//   try {
-//     firebaseApp
-//       .auth()
-//       .signInWithEmailAndPassword(username, password)
-//       .then(res => {
-//         dispatch(onSetUser(res.user));
-//         dispatch(setOnLogin(true));
-//       })
-//       .catch(function(error) {
-//         console.log("error", error);
-//       });
-//   } catch (error) {}
-//   dispatch(setOnLogin(false));
-// };
+import md5 from "md5";
 
 export const OnRegisterUser = (body, dispatch) => {
   dispatch(IncrementLoading);
 
   return firebaseApp
     .auth()
-    .createUserWithEmailAndPassword(body.username, body.password)
+    .createUserWithEmailAndPassword(body.email, body.password)
     .then(async response => {
-      dispatch(setRegister(response));
-      return dispatch(DecrementLoading);
+      console.log(response);
+      response.user
+        .updateProfile({
+          displayName: body.username,
+          photoURL: `http://gravatar.com/avatar/${md5(
+            response.user.email
+          )}?d=identicon`
+        })
+        .then(() => {
+          dispatch(setRegister(response));
+          return dispatch(DecrementLoading);
+        });
     })
     .catch(error => {
       console.log(error);
@@ -54,6 +50,7 @@ export const OnLogin = (body, dispatch) => {
       return dispatch(DecrementLoading);
     })
     .catch(error => {
+      console.log(error);
       dispatch(DecrementLoading);
     });
 };

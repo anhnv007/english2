@@ -2,7 +2,6 @@ import {
   DecrementLoading,
   IncrementLoading,
   setNewWord,
-  setAllWord,
   setRemoveWord,
   setUpdateWord
 } from "./type";
@@ -24,6 +23,7 @@ export const OnAddWord = (body, dispatch) => {
       return dispatch(DecrementLoading);
     })
     .catch(error => {
+      console.log(error);
       dispatch(DecrementLoading);
     });
 };
@@ -41,6 +41,7 @@ export const OnRemoveWord = (body, dispatch) => {
       return dispatch(DecrementLoading);
     })
     .catch(error => {
+      console.log(error);
       dispatch(DecrementLoading);
     });
 };
@@ -63,6 +64,7 @@ export const OnUpdateWord = (body, dispatch) => {
       return dispatch(DecrementLoading);
     })
     .catch(error => {
+      console.log(error);
       dispatch(DecrementLoading);
     });
 };

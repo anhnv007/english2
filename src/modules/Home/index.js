@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { withUser } from "hocs";
-
 import Header from "./Header";
 import Body from "./Body";
 
