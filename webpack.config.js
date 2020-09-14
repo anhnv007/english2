@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 const BASE_DIR = __dirname;
 
 module.exports = {
@@ -56,6 +57,11 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: "./public/index.html"
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
     })
   ]
 };
